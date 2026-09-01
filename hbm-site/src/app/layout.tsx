@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hbm.com.br"),
+  metadataBase: new URL("https://hbmagentes.com.br"),
   title: {
     default: "HBM — Sites profissionais que geram resultado para sua empresa",
     template: "%s | HBM",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://hbm.com.br",
+    url: "https://hbmagentes.com.br",
     siteName: "HBM",
     title: "HBM — Sites profissionais que geram resultado para sua empresa",
     description:

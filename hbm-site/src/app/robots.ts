@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://hbm.com.br/sitemap.xml",
+    sitemap: "https://hbmagentes.com.br/sitemap.xml",
   };
 }
