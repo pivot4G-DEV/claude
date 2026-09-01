@@ -5,49 +5,41 @@ import { EASE_OUT } from "@/lib/motion";
 
 type Token = { text: string; accent?: boolean };
 
-const WORD_DELAY = 0.05;
-const BASE_DELAY = 0.35;
-
 /**
- * Título de entrada em "cortina": cada palavra sobe para dentro do
- * lugar, escondida atrás de uma máscara (overflow-hidden), em vez de
- * simplesmente aparecer. É o mesmo efeito usado em sites premium de
- * agência/produto para dar peso ao primeiro impacto.
+ * Título de entrada contido: um único bloco que assenta com blur→nítido
+ * e leve subida — sem cascata palavra a palavra. É o padrão de restrição
+ * do design Apple: um efeito por vez, e que assenta rápido.
  */
-export function HeadlineReveal({ tokens, className }: { tokens: Token[]; className?: string }) {
+export function HeadlineReveal({
+  tokens,
+  className,
+  delay = 0.15,
+}: {
+  tokens: Token[];
+  className?: string;
+  delay?: number;
+}) {
   const prefersReducedMotion = useReducedMotion();
 
+  const content = tokens.map((t, i) => (
+    <span key={i} className={t.accent ? "text-brand" : undefined}>
+      {t.text}
+      {i < tokens.length - 1 ? " " : ""}
+    </span>
+  ));
+
   if (prefersReducedMotion) {
-    return (
-      <h1 className={className}>
-        {tokens.map((t, i) => (
-          <span key={i} className={t.accent ? "text-brand" : undefined}>
-            {t.text}{" "}
-          </span>
-        ))}
-      </h1>
-    );
+    return <h1 className={className}>{content}</h1>;
   }
 
   return (
-    <h1 className={className}>
-      {tokens.map((t, i) => (
-        <span key={i} className="inline-block overflow-hidden pb-1 align-bottom">
-          <motion.span
-            className={`inline-block ${t.accent ? "text-brand" : ""}`}
-            initial={{ y: "110%" }}
-            animate={{ y: "0%" }}
-            transition={{
-              duration: 0.85,
-              ease: EASE_OUT,
-              delay: BASE_DELAY + i * WORD_DELAY,
-            }}
-          >
-            {t.text}
-            {i < tokens.length - 1 ? " " : ""}
-          </motion.span>
-        </span>
-      ))}
-    </h1>
+    <motion.h1
+      className={className}
+      initial={{ opacity: 0, y: 18, filter: "blur(14px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{ duration: 0.9, ease: EASE_OUT, delay }}
+    >
+      {content}
+    </motion.h1>
   );
 }
