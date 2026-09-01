@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { MessageCircle, Mail } from "lucide-react";
 import { DURATION, EASE_OUT } from "@/lib/motion";
+import { Topography } from "@/components/topography";
 
 const WHATSAPP_URL =
   "https://wa.me/5551995761877?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20conversar";
@@ -33,6 +34,7 @@ export function Contato() {
           prefersReducedMotion ? undefined : { duration: 25, repeat: Infinity, ease: "easeInOut" }
         }
       />
+      <Topography origin="top-left" className="opacity-60" />
 
       <div className="container-hbm relative flex flex-col items-center text-center">
         <motion.p

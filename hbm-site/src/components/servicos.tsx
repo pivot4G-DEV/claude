@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { Reveal } from "@/components/reveal";
+import { Topography } from "@/components/topography";
 
 const INCLUDES = [
   {
@@ -49,6 +50,7 @@ export function Servicos() {
               prefersReducedMotion ? undefined : { duration: 28, repeat: Infinity, ease: "easeInOut" }
             }
           />
+          <Topography origin="bottom-right" className="opacity-70" />
         </>
       }
     >
