@@ -1,3 +1,6 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { Reveal } from "@/components/reveal";
@@ -18,8 +21,37 @@ const INCLUDES = [
 ];
 
 export function Servicos() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
-    <Section id="servicos" tone="dark">
+    <Section
+      id="servicos"
+      tone="dark"
+      decor={
+        <>
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute -left-32 top-0 h-[30rem] w-[30rem] rounded-full bg-brand/[0.16] blur-[100px]"
+            animate={
+              prefersReducedMotion ? undefined : { y: ["-2%", "3%", "-2%"], scale: [1, 1.07, 1] }
+            }
+            transition={
+              prefersReducedMotion ? undefined : { duration: 24, repeat: Infinity, ease: "easeInOut" }
+            }
+          />
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute -right-24 bottom-0 h-[26rem] w-[26rem] rounded-full bg-brand-on-dark/[0.1] blur-[100px]"
+            animate={
+              prefersReducedMotion ? undefined : { y: ["2%", "-3%", "2%"], scale: [1, 1.05, 1] }
+            }
+            transition={
+              prefersReducedMotion ? undefined : { duration: 28, repeat: Infinity, ease: "easeInOut" }
+            }
+          />
+        </>
+      }
+    >
       <SectionHeader
         eyebrow="O que fazemos"
         title="Desenvolvimento de sites profissionais para empresas."

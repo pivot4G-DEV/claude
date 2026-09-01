@@ -23,6 +23,16 @@ export function Contato() {
           prefersReducedMotion ? undefined : { duration: 20, repeat: Infinity, ease: "easeInOut" }
         }
       />
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-24 -right-16 h-[24rem] w-[24rem] rounded-full bg-brand-on-dark/[0.08] blur-[100px]"
+        animate={
+          prefersReducedMotion ? undefined : { y: ["2%", "-2%", "2%"], scale: [1, 1.06, 1] }
+        }
+        transition={
+          prefersReducedMotion ? undefined : { duration: 25, repeat: Infinity, ease: "easeInOut" }
+        }
+      />
 
       <div className="container-hbm relative flex flex-col items-center text-center">
         <motion.p

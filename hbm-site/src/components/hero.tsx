@@ -20,7 +20,7 @@ export function Hero() {
       {/* Glow ambiente, centrado atrás do título — deriva bem devagar, quase parada */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-24 -z-10 h-[36rem] w-[60rem] -translate-x-1/2 rounded-full bg-brand/[0.07] blur-[100px]"
+        className="pointer-events-none absolute left-1/2 top-24 -z-10 h-[38rem] w-[64rem] -translate-x-1/2 rounded-full bg-brand/[0.11] blur-[110px]"
         animate={
           prefersReducedMotion
             ? undefined
@@ -28,6 +28,17 @@ export function Hero() {
         }
         transition={
           prefersReducedMotion ? undefined : { duration: 22, repeat: Infinity, ease: "easeInOut" }
+        }
+      />
+      {/* Segundo glow, mais baixo, dando profundidade sob o cartão do site */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-[38rem] -z-10 h-[30rem] w-[50rem] -translate-x-1/2 rounded-full bg-brand/[0.07] blur-[110px]"
+        animate={
+          prefersReducedMotion ? undefined : { x: ["1.5%", "-1.5%", "1.5%"], scale: [1, 1.05, 1] }
+        }
+        transition={
+          prefersReducedMotion ? undefined : { duration: 26, repeat: Infinity, ease: "easeInOut" }
         }
       />
 

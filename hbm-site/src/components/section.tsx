@@ -5,6 +5,8 @@ type SectionProps = {
   children: ReactNode;
   tone?: "light" | "surface" | "dark";
   className?: string;
+  /** Elemento decorativo posicionado atrás do conteúdo (glow, textura). */
+  decor?: ReactNode;
 };
 
 const TONE_BG: Record<NonNullable<SectionProps["tone"]>, string> = {
@@ -18,10 +20,14 @@ const TONE_BG: Record<NonNullable<SectionProps["tone"]>, string> = {
  * seções (padrão Apple: 100–150px desktop, 60–80px mobile), tom
  * claro/neutro/escuro para alternar o fundo entre seções.
  */
-export function Section({ id, children, tone = "light", className = "" }: SectionProps) {
+export function Section({ id, children, tone = "light", className = "", decor }: SectionProps) {
   return (
-    <section id={id} className={`${TONE_BG[tone]} py-24 md:py-36 ${className}`}>
-      <div className="container-hbm">{children}</div>
+    <section
+      id={id}
+      className={`relative overflow-hidden ${TONE_BG[tone]} py-24 md:py-36 ${className}`}
+    >
+      {decor}
+      <div className="container-hbm relative">{children}</div>
     </section>
   );
 }
