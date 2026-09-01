@@ -56,11 +56,11 @@ export function HeroPanel() {
           />
         )}
 
-        {/* Barra de topo estilo janela do navegador */}
-        <div className="flex items-center gap-1.5 border-b border-black/[0.05] px-5 py-4">
-          <span className="h-2.5 w-2.5 rounded-full bg-black/[0.08]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-black/[0.08]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-black/[0.08]" />
+        {/* Barra de topo em vidro — o mesmo material da navegação flutuante */}
+        <div className="relative z-20 flex items-center gap-1.5 border-b border-white/50 bg-white/40 px-5 py-4 backdrop-blur-xl backdrop-saturate-[1.8]">
+          <span className="h-2.5 w-2.5 rounded-full bg-black/[0.1]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-black/[0.1]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-black/[0.1]" />
         </div>
 
         <div className="space-y-6 bg-surface p-8 md:p-10">
@@ -93,7 +93,7 @@ export function HeroPanel() {
         initial={prefersReducedMotion ? undefined : { opacity: 0, y: 12 }}
         animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: EASE_OUT, delay: 1.15 }}
-        className="absolute -bottom-6 left-8 hidden items-center gap-3 rounded-2xl border border-black/[0.06] bg-paper/90 p-4 shadow-[0_12px_32px_-12px_rgba(16,20,31,0.2)] backdrop-blur-md sm:flex"
+        className="absolute -bottom-6 left-8 hidden items-center gap-3 rounded-2xl border border-white/50 bg-white/50 p-4 shadow-[var(--glass-shadow)] backdrop-blur-xl backdrop-saturate-[1.8] sm:flex"
       >
         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink text-xs font-semibold text-white">
           ✓

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { EASE_OUT, SPRING } from "@/lib/motion";
+import { Logo } from "@/components/logo";
 
 const NAV_LINKS = [
   { href: "#sobre", label: "Sobre" },
@@ -61,10 +62,13 @@ export function SiteHeader() {
         >
           <Link
             href="#topo"
-            className="rounded-full py-2 pl-4 pr-3 font-display text-base font-semibold tracking-tight text-ink"
+            className="flex items-center gap-2 rounded-full py-1.5 pl-3 pr-3"
             onClick={() => setMenuOpen(false)}
           >
-            HBM
+            <Logo className="h-7 w-auto" />
+            <span className="font-display text-base font-semibold tracking-tight text-ink">
+              HBM
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex" aria-label="Navegação principal">

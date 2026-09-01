@@ -21,7 +21,7 @@ export function Portfolio() {
         {CARDS.map((card, i) => (
           <Reveal key={i} delay={i * 0.08}>
             <div className="group relative overflow-hidden rounded-[24px] border border-black/[0.06] bg-paper p-6 shadow-[0_1px_2px_rgba(16,20,31,0.04)]">
-              <span className="absolute right-5 top-5 rounded-full border border-black/[0.08] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.06em] text-ink-faint">
+              <span className="absolute right-5 top-5 rounded-full border border-white/60 bg-white/50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.06em] text-ink-faint shadow-[var(--glass-shadow)] backdrop-blur-xl backdrop-saturate-[1.8]">
                 Em breve
               </span>
 

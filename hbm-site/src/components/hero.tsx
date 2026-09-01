@@ -17,10 +17,18 @@ export function Hero() {
 
   return (
     <section id="topo" className="relative overflow-hidden pt-44 pb-8 md:pt-56">
-      {/* Um único glow suave, centrado atrás do título — sem textura, sem ruído */}
-      <div
+      {/* Glow ambiente, centrado atrás do título — deriva bem devagar, quase parada */}
+      <motion.div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-24 -z-10 h-[36rem] w-[60rem] -translate-x-1/2 rounded-full bg-brand/[0.07] blur-[100px]"
+        animate={
+          prefersReducedMotion
+            ? undefined
+            : { x: ["-1%", "1.5%", "-1%"], scale: [1, 1.06, 1] }
+        }
+        transition={
+          prefersReducedMotion ? undefined : { duration: 22, repeat: Infinity, ease: "easeInOut" }
+        }
       />
 
       <div className="container-hbm flex flex-col items-center text-center">

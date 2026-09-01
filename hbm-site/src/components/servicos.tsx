@@ -37,7 +37,7 @@ export function Servicos() {
       </div>
 
       <Reveal delay={0.3}>
-        <div className="mx-auto mt-20 max-w-xl rounded-3xl border border-white/[0.08] bg-white/[0.03] px-7 py-6 text-center">
+        <div className="mx-auto mt-20 max-w-xl rounded-3xl border border-white/[0.12] bg-white/[0.06] px-7 py-6 text-center backdrop-blur-xl backdrop-saturate-[1.8]">
           <p className="text-[15px] leading-relaxed text-dark-muted">
             Sua empresa já tem site e quer evoluir? Também trabalhamos com{" "}
             <span className="text-dark-text">automação, integrações e IA</span> — quando fizer

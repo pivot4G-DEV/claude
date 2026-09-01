@@ -4,18 +4,24 @@ import { motion, useReducedMotion } from "framer-motion";
 import { MessageCircle, Mail } from "lucide-react";
 import { DURATION, EASE_OUT } from "@/lib/motion";
 
-// TODO(HBM): troque pelo WhatsApp e e-mail reais antes de publicar.
-const WHATSAPP_URL = "https://wa.me/55SEUNUMEROAQUI?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20conversar";
-const EMAIL = "contato@hbm.com.br";
+const WHATSAPP_URL =
+  "https://wa.me/5551995761877?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20conversar";
+const EMAIL = "servicoshbm@gmail.com";
 
 export function Contato() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
     <section id="contato" className="relative overflow-hidden bg-dark py-28 md:py-40">
-      <div
+      <motion.div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-0 -z-0 h-[36rem] w-[60rem] -translate-x-1/2 rounded-full bg-brand/[0.14] blur-[110px]"
+        animate={
+          prefersReducedMotion ? undefined : { x: ["-1.5%", "1.5%", "-1.5%"], scale: [1, 1.08, 1] }
+        }
+        transition={
+          prefersReducedMotion ? undefined : { duration: 20, repeat: Infinity, ease: "easeInOut" }
+        }
       />
 
       <div className="container-hbm relative flex flex-col items-center text-center">

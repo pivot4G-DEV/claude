@@ -47,7 +47,7 @@ export function Diferenciais() {
       <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3">
         {ITEMS.map((item, i) => (
           <Reveal key={item.n} delay={i * 0.06} className={item.span}>
-            <div className="group h-full rounded-[28px] border border-black/[0.06] bg-surface p-8 transition-colors duration-300 ease-out hover:bg-surface-2 md:p-9">
+            <div className="group h-full rounded-[28px] border border-black/[0.06] bg-surface p-8 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-white/60 hover:bg-white/50 hover:shadow-[0_20px_50px_-24px_rgba(16,20,31,0.22)] hover:backdrop-blur-xl hover:backdrop-saturate-[1.8] md:p-9">
               <span className="font-display text-sm font-semibold text-ink/20">{item.n}</span>
               <h3 className="mt-5 font-display text-xl font-semibold tracking-[-0.01em] text-ink">
                 {item.title}

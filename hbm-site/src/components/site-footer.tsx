@@ -1,3 +1,5 @@
+import { Logo } from "@/components/logo";
+
 const LINKS = [
   { href: "#sobre", label: "Sobre" },
   { href: "#diferenciais", label: "Diferenciais" },
@@ -11,7 +13,10 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-black/[0.08] bg-surface">
       <div className="container-hbm flex flex-col gap-6 py-10 text-[13px] text-ink-faint sm:flex-row sm:items-center sm:justify-between">
-        <span className="font-display text-[13px] font-semibold text-ink-soft">HBM</span>
+        <span className="flex items-center gap-2">
+          <Logo className="h-5 w-auto" />
+          <span className="font-display text-[13px] font-semibold text-ink-soft">HBM</span>
+        </span>
 
         <nav aria-label="Navegação do rodapé">
           <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
