@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Albinismo</title>
+  <meta name="description" content="Albinismo: uma condição genética. Não pega, não é castigo e não é motivo de piada. Trabalho de Biologia, 9º ano, Colégio Anchieta.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@500;700&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#o-que-e">Pular para o conteúdo</a>
+
+<!-- ============ CABEÇALHO (barra flutuante) ============ -->
+<div class="scroll-edge" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="nav__bar">
+    <a class="nav__brand" href="#inicio" aria-label="Albinismo, voltar ao início">
+      <!-- LOGO: troque o arquivo logo.svg (mesma pasta) pela logo oficial.
+           Se a logo for PNG/JPG/WEBP, mude o src abaixo, ex: src="logo.png" -->
+      <img src="logo.svg" alt="HBM Produções" width="32" height="32">
+      <span>Albinismo</span>
+    </a>
+    <nav class="nav__links" id="nav-links" aria-label="Seções">
+      <a href="#o-que-e">O que é</a>
+      <a href="#genetica">Genética</a>
+      <a href="#sintomas">Sintomas</a>
+      <a href="#cuidados">Cuidados</a>
+      <a href="#mitos">Mitos</a>
+      <a href="#preconceito">Preconceito</a>
+      <a href="#resumo">Resumo</a>
+      <a href="#fontes">Fontes</a>
+    </nav>
+    <button class="nav__menu" id="nav-menu" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+  </div>
+  <div class="nav__progress" aria-hidden="true"><span id="progress"></span></div>
+</header>
+
+<main>
+
+<!-- ============ INÍCIO ============ -->
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+  <canvas class="hero__granules" id="granules" aria-hidden="true"></canvas>
+  <div class="hero__inner">
+    <h1 id="hero-title" class="hero__title">Albinismo</h1>
+    <p class="hero__sub">Uma condição genética. Não pega, não é castigo e não é motivo de piada.</p>
+    <p class="hero__lead">Você já deve ter visto alguém com pele e cabelo muito claros e ficado com dúvida. Neste site a gente explica o que é o albinismo, como ele passa de pais para filhos, quais são os sintomas e como se cuidar.</p>
+    <a class="btn btn--filled" href="#o-que-e">
+      Começar
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </a>
+  </div>
+</section>
+
+<section class="facts" aria-label="Três fatos rápidos">
+  <ol class="facts__list">
+    <li class="fact" data-reveal>
+      <svg class="fact__art" viewBox="0 0 120 64" aria-hidden="true">
+        <g class="fact__dots"></g>
+      </svg>
+      <p>Afeta cerca de <strong class="fact__big">1 em cada 17 mil a 20 mil</strong> pessoas no mundo. Em algumas regiões da África é bem mais comum.</p>
+    </li>
+    <li class="fact" data-reveal>
+      <svg class="fact__art" viewBox="0 0 120 64" aria-hidden="true">
+        <circle cx="38" cy="32" r="20" class="fact__ring"/>
+        <circle cx="82" cy="32" r="20" class="fact__ring"/>
+        <path d="M60 14v36" class="fact__slash"/>
+      </svg>
+      <p><strong class="fact__big">Não é contagioso.</strong></p>
+    </li>
+    <li class="fact" data-reveal>
+      <svg class="fact__art fact__cal" viewBox="0 0 120 64" aria-hidden="true">
+        <rect x="34" y="6" width="52" height="54" rx="10"/>
+        <path d="M34 22h52"/>
+        <text x="60" y="51" text-anchor="middle">13</text>
+      </svg>
+      <p><strong class="fact__big">13 de junho</strong> é o Dia Internacional de Conscientização sobre o Albinismo.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ 1. O QUE É ============ -->
+<section class="section" id="o-que-e" aria-labelledby="t-oque">
+  <div class="wrap">
+    <h2 class="h2" id="t-oque" data-reveal>O que é</h2>
+    <p class="statement" data-reveal>Albinismo é uma condição genética e hereditária em que o corpo produz <em>pouca ou nenhuma melanina</em>.</p>
+
+    <div class="split">
+      <div class="prose" data-reveal>
+        <p>Melanina é o pigmento que dá cor à pele, aos cabelos e aos olhos. Ela também protege a pele contra os raios do sol.</p>
+        <p>Quando a melanina falta ou é pouca, a pessoa nasce com pele, cabelos e olhos bem claros e tem problemas de visão.</p>
+      </div>
+
+      <!-- Ferramenta: controle de melanina -->
+      <figure class="melanin" data-reveal aria-labelledby="mel-cap">
+        <svg class="melanin__skin" id="skin-svg" viewBox="0 0 560 300" aria-hidden="true">
+          <g class="sun">
+            <circle cx="70" cy="40" r="22"/>
+            <g class="sun__rays">
+              <path d="M70 6v-2M70 76v2M36 40h-2M106 40h2M46 16l-1-1M94 64l1 1M94 16l1-1M46 64l-1 1"/>
+            </g>
+          </g>
+          <g id="uv-rays"></g>
+          <rect class="skin__air" x="0" y="0" width="560" height="120" fill="none"/>
+          <path id="skin-top" class="skin__layer" d="M0 132 C 90 118, 180 146, 280 132 S 470 118, 560 132 V 300 H 0 Z"/>
+          <path class="skin__deep" d="M0 214 C 120 204, 240 226, 360 214 S 500 206, 560 214 V 300 H 0 Z"/>
+          <g id="melanocytes"></g>
+          <g id="skin-granules"></g>
+        </svg>
+        <div class="melanin__swatches" aria-hidden="true">
+          <div><span class="sw" id="sw-skin"></span>Pele</div>
+          <div><span class="sw" id="sw-hair"></span>Cabelos</div>
+          <div><span class="sw sw--eye" id="sw-eye"></span>Olhos</div>
+        </div>
+        <label class="range">
+          <span class="range__label" id="mel-cap">Quantidade de melanina</span>
+          <input type="range" id="mel-range" min="0" max="100" value="72" aria-valuetext="72%">
+          <span class="range__ends" aria-hidden="true"><span>Menos</span><span>Mais</span></span>
+        </label>
+      </figure>
+    </div>
+
+    <h3 class="h3" data-reveal>Alguns pontos que todo mundo precisa saber:</h3>
+    <ul class="points">
+      <li data-reveal>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="24" r="11"/><circle cx="31" cy="24" r="11"/><path d="M10 38 38 10"/></svg>
+        <p><strong>Não é doença que pega.</strong> Ninguém "pega" albinismo de outra pessoa. A pessoa já nasce com ele.</p>
+      </li>
+      <li data-reveal>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M7 24h34M24 7c-6 5-8 11-8 17s2 12 8 17M24 7c6 5 8 11 8 17s-2 12-8 17"/></svg>
+        <p>Acontece em pessoas de todos os povos e origens, e também em animais.</p>
+      </li>
+      <li data-reveal>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 24s7-11 19-11 19 11 19 11-7 11-19 11S5 24 5 24Z"/><circle cx="24" cy="24" r="6"/></svg>
+        <p>Existem tipos diferentes. O mais conhecido é o <strong>albinismo oculocutâneo</strong>, que afeta pele, cabelos e olhos. Também existe o <strong>albinismo ocular</strong>, que afeta principalmente os olhos.</p>
+      </li>
+    </ul>
+
+    <!-- ESPAÇO PARA FOTO DO GRUPO (opcional)
+         Para usar: apague a linha de abertura e a linha de fechamento do comentário
+         logo abaixo (as que ficam em volta do bloco figure) e coloque o arquivo da foto
+         na pasta do site com o nome foto-1.jpg (ou mude o src).
+    -->
+    <!--
+    <figure class="photo" data-reveal>
+      <img src="foto-1.jpg" alt="Descreva aqui o que aparece na foto">
+      <figcaption>Legenda da foto</figcaption>
+    </figure>
+    -->
+  </div>
+</section>
+
+<!-- ============ 2. GENÉTICA ============ -->
+<section class="section section--gray" id="genetica" aria-labelledby="t-gen">
+  <div class="wrap">
+    <h2 class="h2" id="t-gen" data-reveal>Genética</h2>
+  </div>
+
+  <div class="wrap gen">
+    <!-- índice lateral fixo (computador) -->
+    <nav class="gen__index" aria-label="Partes da genética">
+      <ol>
+        <li><a href="#g1"><b>2.1</b> Gene, DNA e mutação</a></li>
+        <li><a href="#g2"><b>2.2</b> Como a melanina é feita</a></li>
+        <li><a href="#g3"><b>2.3</b> Herança autossômica recessiva</a></li>
+        <li><a href="#g4"><b>2.4</b> As letras (genótipos)</a></li>
+        <li><a href="#g5"><b>2.5</b> A ligação com Mendel</a></li>
+        <li><a href="#g6"><b>2.6</b> Cruzamento de exemplo</a></li>
+        <li><a href="#punnett"><b>2.7</b> Teste você mesmo</a></li>
+        <li><a href="#g8"><b>2.8</b> Tipos de albinismo</a></li>
+      </ol>
+    </nav>
+
+    <div class="gen__body">
+
+      <!-- 2.1 -->
+      <article class="gpart" id="g1" aria-labelledby="t-g1">
+        <h3 class="h3 gpart__title" id="t-g1" data-reveal><span class="num">2.1</span> Gene, DNA e mutação</h3>
+        <figure class="helix" data-reveal>
+          <svg id="helix" viewBox="0 0 640 200" role="img" aria-label="Desenho de uma fita de DNA com um trecho marcado como gene e uma mudança marcada como mutação"></svg>
+        </figure>
+        <div class="prose" data-reveal>
+          <p>O DNA é como um manual de instruções do corpo. Cada parte desse manual que dá uma instrução é um gene. Uma mutação é uma mudança nesse manual, como um erro de escrita. No albinismo, a mutação acontece em genes que ajudam a fabricar a melanina, e ela é passada dos pais para os filhos pelos gametas (o óvulo e o espermatozoide).</p>
+        </div>
+      </article>
+
+      <!-- 2.2 -->
+      <article class="gpart" id="g2" aria-labelledby="t-g2">
+        <h3 class="h3 gpart__title" id="t-g2" data-reveal><span class="num">2.2</span> Como a melanina é feita</h3>
+
+        <div class="path" id="path" data-mode="normal" data-reveal>
+          <div class="seg" role="group" aria-label="Escolha a versão do esquema">
+            <button type="button" class="seg__btn" aria-pressed="true" data-mode="normal">Normal</button>
+            <button type="button" class="seg__btn" aria-pressed="false" data-mode="mutacao">Com mutação</button>
+            <span class="seg__thumb" aria-hidden="true"></span>
+          </div>
+
+          <ol class="path__steps">
+            <li class="step">
+              <svg class="step__art" viewBox="0 0 120 120" aria-hidden="true">
+                <g class="art-gene">
+                  <path class="strand" d="M30 14c40 20 40 72 0 92M90 14c-40 20-40 72 0 92"/>
+                  <path class="rungs" d="M42 30h36M50 46h20M50 74h20M42 90h36"/>
+                  <path class="break" d="M52 56l8 6-6 4 8 6"/>
+                </g>
+              </svg>
+              <p><span class="step__n">1</span>O gene dá a instrução.</p>
+            </li>
+            <li class="step__arrow" aria-hidden="true"><svg viewBox="0 0 60 24"><path d="M2 12h52M44 4l10 8-10 8"/></svg></li>
+            <li class="step">
+              <svg class="step__art" viewBox="0 0 120 120" aria-hidden="true">
+                <g class="art-cell">
+                  <path class="cell" d="M60 22c14 0 18 12 30 10 10-2 20 8 12 18-6 8 6 16 0 26-6 10-18 4-24 14-6 10-22 12-30 4-8-8-22-2-26-14-4-12 8-16 4-26-4-10 2-20 14-18 10 2 12-14 20-14Z"/>
+                  <path class="enzyme" d="M60 50a14 14 0 1 0 10 24l-10-10 10-10a14 14 0 0 0-10-4Z"/>
+                  <path class="x" d="M50 50l20 20M70 50 50 70"/>
+                </g>
+              </svg>
+              <p><span class="step__n">2</span>A enzima (a mais conhecida é a <strong>tirosinase</strong>) faz o trabalho de produzir a melanina dentro dos melanócitos, que são as células da pele que fabricam o pigmento.</p>
+            </li>
+            <li class="step__arrow" aria-hidden="true"><svg viewBox="0 0 60 24"><path d="M2 12h52M44 4l10 8-10 8"/></svg></li>
+            <li class="step">
+              <svg class="step__art" viewBox="0 0 120 120" aria-hidden="true">
+                <g class="art-mel">
+                  <circle cx="40" cy="44" r="12"/><circle cx="72" cy="36" r="9"/><circle cx="84" cy="66" r="13"/>
+                  <circle cx="52" cy="76" r="10"/><circle cx="30" cy="84" r="7"/><circle cx="66" cy="96" r="7"/><circle cx="92" cy="94" r="6"/>
+                </g>
+              </svg>
+              <p><span class="step__n">3</span>A melanina colore a pele, os cabelos e os olhos.</p>
+            </li>
+          </ol>
+
+          <p class="path__status" aria-live="polite">
+            <span class="path__bad">Com a mutação, o gene não funciona direito, a enzima falha e a melanina é produzida pouco ou nada.</span>
+          </p>
+        </div>
+
+        <div class="genes" data-reveal>
+          <p>Genes envolvidos nos tipos mais comuns:</p>
+          <ul>
+            <li>TYR</li><li>OCA2</li><li>TYRP1</li><li>SLC45A2</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 2.3 -->
+      <article class="gpart" id="g3" aria-labelledby="t-g3">
+        <h3 class="h3 gpart__title" id="t-g3" data-reveal><span class="num">2.3</span> Herança autossômica recessiva</h3>
+        <p class="lead" data-reveal>O tipo mais comum de albinismo tem herança autossômica recessiva.</p>
+        <div class="split split--even">
+          <dl class="terms" data-reveal>
+            <div>
+              <dt>Autossômica</dt>
+              <dd>o gene fica em um cromossomo que não é sexual. Por isso o albinismo afeta meninos e meninas do mesmo jeito.</dd>
+            </div>
+            <div>
+              <dt>Recessiva</dt>
+              <dd>o gene alterado só "aparece" quando a pessoa recebe uma cópia dele do pai E uma da mãe. Quem tem só uma cópia não manifesta a condição.</dd>
+            </div>
+          </dl>
+          <figure class="pair" data-reveal>
+            <div class="chrom chrom--big" data-pair="aa" aria-hidden="true"></div>
+            <figcaption>Todo mundo tem dois exemplares de cada gene, um vindo da mãe e outro do pai.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 2.4 -->
+      <article class="gpart" id="g4" aria-labelledby="t-g4">
+        <h3 class="h3 gpart__title" id="t-g4" data-reveal><span class="num">2.4</span> As letras (genótipos)</h3>
+        <div class="alleles" data-reveal>
+          <p><span class="allele allele--A">A</span> = gene normal (dominante)</p>
+          <p><span class="allele allele--a">a</span> = gene alterado (recessivo)</p>
+        </div>
+        <ul class="genotypes">
+          <li class="gt gt--AA" data-reveal>
+            <div class="chrom" data-pair="AA" aria-hidden="true"></div>
+            <p><b class="mono">AA</b> = não tem o gene alterado</p>
+          </li>
+          <li class="gt gt--Aa" data-reveal>
+            <div class="chrom" data-pair="Aa" aria-hidden="true"></div>
+            <p><b class="mono">Aa</b> = portador: tem o gene alterado, mas não tem albinismo</p>
+          </li>
+          <li class="gt gt--aa" data-reveal>
+            <div class="chrom" data-pair="aa" aria-hidden="true"></div>
+            <p><b class="mono">aa</b> = pessoa com albinismo</p>
+          </li>
+        </ul>
+        <p class="callout" data-reveal>Por isso dois pais sem albinismo podem ter um filho com albinismo, se os dois forem portadores (<b class="mono">Aa</b>).</p>
+      </article>
+
+      <!-- 2.5 -->
+      <article class="gpart" id="g5" aria-labelledby="t-g5">
+        <h3 class="h3 gpart__title" id="t-g5" data-reveal><span class="num">2.5</span> A ligação com Mendel</h3>
+        <p class="lead" data-reveal>Isso mostra as ideias de Mendel funcionando:</p>
+        <div class="mendel">
+          <figure class="mendel__art" data-reveal>
+            <svg viewBox="0 -14 520 344" role="img" aria-label="Esquema: pai Aa e mãe Aa produzem gametas A e a; o encontro de dois gametas forma o filho">
+              <g class="m-parent">
+                <circle cx="120" cy="52" r="34"/><text x="120" y="61">Aa</text>
+                <text class="m-cap" x="120" y="8">mãe</text>
+                <circle cx="400" cy="52" r="34"/><text x="400" y="61">Aa</text>
+                <text class="m-cap" x="400" y="8">pai</text>
+              </g>
+              <g class="m-lines">
+                <path d="M104 84 72 150M136 84l32 66M384 84l-32 66M416 84l32 66"/>
+              </g>
+              <g class="m-gam">
+                <circle class="gA" cx="68" cy="172" r="22"/><text x="68" y="180">A</text>
+                <circle class="ga" cx="172" cy="172" r="22"/><text x="172" y="180">a</text>
+                <circle class="gA" cx="348" cy="172" r="22"/><text x="348" y="180">A</text>
+                <circle class="ga" cx="452" cy="172" r="22"/><text x="452" y="180">a</text>
+              </g>
+              <text class="m-cap" x="120" y="222">gametas</text>
+              <text class="m-cap" x="400" y="222">gametas</text>
+              <g class="m-fuse">
+                <path d="M178 196c30 60 60 76 70 82M342 196c-30 60-60 76-70 82"/>
+                <circle cx="260" cy="292" r="30"/><text x="260" y="301">aa</text>
+              </g>
+            </svg>
+          </figure>
+          <ol class="mendel__list">
+            <li data-reveal><b>Fatores hereditários:</b> os genes que passam de pais para filhos.</li>
+            <li data-reveal><b>Segregação dos gametas:</b> cada gameta leva só um dos dois genes. Uma pessoa <span class="mono">Aa</span> produz gametas <span class="mono">A</span> e gametas <span class="mono">a</span>.</li>
+            <li data-reveal><b>Fecundação:</b> o encontro do gameta do pai com o da mãe define o genótipo do filho.</li>
+          </ol>
+        </div>
+      </article>
+
+      <!-- 2.6 -->
+      <article class="gpart" id="g6" aria-labelledby="t-g6">
+        <h3 class="h3 gpart__title" id="t-g6" data-reveal><span class="num">2.6</span> Cruzamento de exemplo (<span class="mono">Aa</span> x <span class="mono">Aa</span>)</h3>
+        <p class="lead" data-reveal>Quando os dois pais são portadores, cada filho tem:</p>
+        <div class="odds" data-reveal>
+          <div class="odds__bar" aria-hidden="true">
+            <span class="o-aa" style="--w:25"></span><span class="o-Aa" style="--w:50"></span><span class="o-AA" style="--w:25"></span>
+          </div>
+          <ul class="odds__list">
+            <li class="o-aa"><b>25%</b> de chance de ter albinismo (<span class="mono">aa</span>)</li>
+            <li class="o-Aa"><b>50%</b> de chance de ser portador (<span class="mono">Aa</span>)</li>
+            <li class="o-AA"><b>25%</b> de chance de não ter o gene alterado (<span class="mono">AA</span>)</li>
+          </ul>
+        </div>
+        <div class="highlight" data-reveal>
+          <p class="highlight__big">Essa chance vale para <em>CADA</em> filho.</p>
+          <p>Se o casal já teve um filho com albinismo, o próximo continua com 25%. A sorte não "compensa" nem "acumula".</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 2.7 FERRAMENTA INTERATIVA -->
+<section class="section section--dark tool" id="punnett" aria-labelledby="t-tool">
+  <div class="wrap">
+    <p class="tool__num" data-reveal><span class="num">2.7</span></p>
+    <h2 class="h2" id="t-tool" data-reveal>Teste você mesmo: monte o cruzamento</h2>
+
+    <div class="tool__grid">
+      <div class="tool__controls" data-reveal>
+        <fieldset class="picker" data-parent="mae">
+          <legend>Genótipo da mãe</legend>
+          <div class="picker__opts">
+            <label><input type="radio" name="mae" value="AA"><span>AA</span></label>
+            <label><input type="radio" name="mae" value="Aa" checked><span>Aa</span></label>
+            <label><input type="radio" name="mae" value="aa"><span>aa</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="picker" data-parent="pai">
+          <legend>Genótipo do pai</legend>
+          <div class="picker__opts">
+            <label><input type="radio" name="pai" value="AA"><span>AA</span></label>
+            <label><input type="radio" name="pai" value="Aa" checked><span>Aa</span></label>
+            <label><input type="radio" name="pai" value="aa"><span>aa</span></label>
+          </div>
+        </fieldset>
+
+        <div class="legend" aria-label="Legenda">
+          <p><span class="allele allele--A">A</span> gene normal (dominante)</p>
+          <p><span class="allele allele--a">a</span> gene alterado (recessivo)</p>
+          <p><span class="key key--AA"></span><b class="mono">AA</b> não tem o gene alterado</p>
+          <p><span class="key key--Aa"></span><b class="mono">Aa</b> portador</p>
+          <p><span class="key key--aa"></span><b class="mono">aa</b> albinismo</p>
+        </div>
+      </div>
+
+      <div class="tool__board" data-reveal>
+        <div class="square" id="square" role="table" aria-label="Quadro de Punnett">
+          <div class="square__corner" role="presentation">
+            <span class="c-mae">mãe</span>
+            <span class="c-pai">pai</span>
+          </div>
+          <div class="square__head square__head--top" role="columnheader" data-g="m0"></div>
+          <div class="square__head square__head--top" role="columnheader" data-g="m1"></div>
+          <div class="square__head square__head--side" role="rowheader" data-g="p0"></div>
+          <div class="square__cell" role="cell" data-c="00"></div>
+          <div class="square__cell" role="cell" data-c="10"></div>
+          <div class="square__head square__head--side" role="rowheader" data-g="p1"></div>
+          <div class="square__cell" role="cell" data-c="01"></div>
+          <div class="square__cell" role="cell" data-c="11"></div>
+        </div>
+
+        <div class="results" aria-live="polite">
+          <ul class="results__list" id="results"></ul>
+          <p class="results__sentence" id="sentence"></p>
+          <p class="results__fixed">Essa chance vale para cada filho, separadamente.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sorteio: mostra que cada filho é independente -->
+    <div class="draw" data-reveal>
+      <div class="draw__head">
+        <h3 class="h3">Sorteie filhos deste casal</h3>
+        <div class="draw__btns">
+          <button type="button" class="btn btn--filled btn--sm" id="draw-1">Sortear 1 filho</button>
+          <button type="button" class="btn btn--gray btn--sm" id="draw-20">Sortear 20</button>
+          <button type="button" class="btn btn--plain btn--sm" id="draw-clear">Limpar</button>
+        </div>
+      </div>
+      <ol class="draw__kids" id="kids" aria-label="Filhos sorteados"></ol>
+      <p class="draw__tally" id="tally" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<!-- 2.8 -->
+<section class="section section--gray" id="g8" aria-labelledby="t-g8">
+  <div class="wrap">
+    <h2 class="h2 h2--sub" id="t-g8" data-reveal><span class="num">2.8</span> Tipos de albinismo</h2>
+    <dl class="types">
+      <div class="type" data-reveal>
+        <dt><span class="type__name">OCA1</span><span class="chip">gene TYR</span></dt>
+        <dd>Ausência total ou grande falta de melanina em alguns casos. Pele e cabelos muito claros.</dd>
+      </div>
+      <div class="type" data-reveal>
+        <dt><span class="type__name">OCA2</span><span class="chip">gene OCA2</span></dt>
+        <dd>Produz alguma melanina. É o tipo mais comum no mundo, e a cor do cabelo pode ir do amarelado ao castanho claro.</dd>
+      </div>
+      <div class="type" data-reveal>
+        <dt><span class="type__name">OCA3 <small>e</small> OCA4</span><span class="chip">gene TYRP1</span><span class="chip">gene SLC45A2</span></dt>
+        <dd>Tipos mais raros, com características variadas.</dd>
+      </div>
+      <div class="type" data-reveal>
+        <dt><span class="type__name">Albinismo ocular <small>(mais raro)</small></span><span class="chip">gene GPR143</span></dt>
+        <dd>Afeta principalmente os olhos, e a pele e o cabelo ficam normais ou quase. Uma forma dele é ligada ao cromossomo X (gene GPR143), então aparece mais em homens.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ 3. SINTOMAS ============ -->
+<section class="section" id="sintomas" aria-labelledby="t-sint">
+  <div class="wrap">
+    <h2 class="h2" id="t-sint" data-reveal>Sintomas</h2>
+
+    <div class="symp">
+      <article class="symp__block symp__block--skin" data-reveal>
+        <h3 class="h3">Pele</h3>
+        <div class="tones" aria-hidden="true"><span></span><span></span><span></span></div>
+        <ul class="list">
+          <li>Muito clara, queima com muita facilidade e quase não bronzeia.</li>
+          <li>Maior risco de câncer de pele ao longo da vida, principalmente quando não há proteção contra o sol.</li>
+        </ul>
+      </article>
+
+      <article class="symp__block" data-reveal>
+        <h3 class="h3">Cabelos e olhos</h3>
+        <div class="hair" aria-hidden="true">
+          <span style="--c:#f7f5ef"></span><span style="--c:#efe2b8"></span><span style="--c:#e6cf94"></span><span style="--c:#b48a62"></span>
+          <i></i>
+          <span class="iris" style="--c:#8fb3cf"></span><span class="iris" style="--c:#a9b3ba"></span><span class="iris" style="--c:#a57a55"></span>
+        </div>
+        <ul class="list">
+          <li>Cabelos brancos, amarelados ou loiros bem claros. Em alguns tipos, castanho claro.</li>
+          <li>Olhos de cor clara: azul, cinza ou castanho claro. Dependendo da luz, podem parecer avermelhados, porque sem pigmento dá para ver os vasos sanguíneos do fundo do olho.</li>
+        </ul>
+      </article>
+
+      <article class="symp__block symp__block--vision" data-reveal>
+        <figure class="eye">
+          <svg viewBox="0 0 400 240" role="img" aria-label="Desenho de um olho com íris clara">
+            <defs>
+              <radialGradient id="iris-g" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#c9dbe8"/>
+                <stop offset=".7" stop-color="#8fb3cf"/>
+                <stop offset="1" stop-color="#5f86a6"/>
+              </radialGradient>
+              <radialGradient id="pupil-g" cx="50%" cy="55%" r="50%">
+                <stop offset="0" stop-color="#8b1e1e"/>
+                <stop offset=".55" stop-color="#3a0d0d"/>
+                <stop offset="1" stop-color="#111"/>
+              </radialGradient>
+              <clipPath id="eye-clip"><path d="M20 120C80 40 140 22 200 22s120 18 180 98c-60 80-120 98-180 98S80 200 20 120Z"/></clipPath>
+            </defs>
+            <path class="eye__white" d="M20 120C80 40 140 22 200 22s120 18 180 98c-60 80-120 98-180 98S80 200 20 120Z"/>
+            <g clip-path="url(#eye-clip)">
+              <circle cx="200" cy="120" r="74" fill="url(#iris-g)"/>
+              <g class="eye__fibers" id="iris-fibers"></g>
+              <circle cx="200" cy="120" r="28" fill="url(#pupil-g)"/>
+              <circle cx="222" cy="98" r="10" fill="#fff" opacity=".9"/>
+            </g>
+            <path class="eye__lid" d="M20 120C80 40 140 22 200 22s120 18 180 98c-60 80-120 98-180 98S80 200 20 120Z"/>
+          </svg>
+        </figure>
+        <div>
+          <h3 class="h3">Visão</h3>
+          <ul class="list list--vision">
+            <li>Sensibilidade forte à luz (<b>fotofobia</b>).</li>
+            <li>Movimento involuntário dos olhos (<b>nistagmo</b>).</li>
+            <li>Estrabismo, miopia, hipermetropia ou astigmatismo.</li>
+            <li>Visão mais fraca, que não se corrige totalmente com óculos.</li>
+          </ul>
+          <p class="why"><b>Por que isso acontece:</b> a melanina também participa do desenvolvimento do olho e do caminho que o sinal faz até o cérebro.</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="closing" data-reveal>A inteligência e a saúde geral de uma pessoa com albinismo são iguais às de qualquer outra pessoa.</p>
+  </div>
+</section>
+
+<!-- ============ 4. TRATAMENTOS E CUIDADOS ============ -->
+<section class="section section--gray" id="cuidados" aria-labelledby="t-cui">
+  <div class="wrap">
+    <h2 class="h2" id="t-cui" data-reveal>Tratamentos e cuidados</h2>
+    <p class="notice" data-reveal>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 16.5v.5"/></svg>
+      <span><b>Não existe cura para o albinismo, porque ele é genético.</b> Mas com os cuidados certos a pessoa pode ter uma vida totalmente normal.</span>
+    </p>
+
+    <div class="care">
+      <article class="care__block care__block--skin" data-reveal>
+        <h3 class="h3">Cuidados com a pele</h3>
+        <div class="care__viz" aria-hidden="true">
+          <div class="spf"><b>30+</b><span>FPS</span></div>
+          <div class="spf spf--ideal"><b>50+</b><span>ideal</span></div>
+          <div class="spf spf--clock">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><path d="M24 12v12l0 0M24 24l0 0"/><path class="clock-arc" d="M24 4a20 20 0 0 1 17.3 30"/></svg>
+            <span>2 h</span>
+          </div>
+        </div>
+        <ul class="list">
+          <li>Protetor solar todos os dias, com FPS 30 ou mais (o ideal é 50 ou mais), reaplicando a cada 2 horas.</li>
+          <li>Chapéu de aba larga, roupas com proteção UV e de manga longa.</li>
+          <li>Evitar o sol forte entre 10h e 16h.</li>
+          <li>Consulta com dermatologista pelo menos uma vez por ano para examinar a pele.</li>
+        </ul>
+        <div class="day" aria-hidden="true">
+          <div class="day__track">
+            <span class="day__sun"></span>
+          </div>
+          <div class="day__labels"><span>6h</span><span>10h</span><span>16h</span><span>20h</span></div>
+        </div>
+      </article>
+
+      <article class="care__block" data-reveal>
+        <h3 class="h3">Cuidados com os olhos</h3>
+        <svg class="care__icon" viewBox="0 0 120 48" aria-hidden="true"><circle cx="30" cy="26" r="18"/><circle cx="90" cy="26" r="18"/><path d="M48 24c8-6 16-6 24 0M12 22 4 14M108 22l8-8"/></svg>
+        <ul class="list">
+          <li>Óculos de grau, quando necessário.</li>
+          <li>Óculos escuros com proteção UV.</li>
+          <li>Acompanhamento regular com oftalmologista.</li>
+          <li>Recursos para baixa visão, como lupas, letras ampliadas e recursos de tecnologia (zoom no celular e no computador).</li>
+        </ul>
+      </article>
+
+      <article class="care__block" data-reveal>
+        <h3 class="h3">Na escola e no dia a dia</h3>
+        <svg class="care__icon" viewBox="0 0 120 48" aria-hidden="true"><rect x="10" y="4" width="100" height="30" rx="4"/><path d="M24 14h40M24 22h60M60 34v10M44 44h32"/></svg>
+        <ul class="list">
+          <li>Sentar perto do quadro e usar material com letra maior.</li>
+          <li>Boa iluminação, sem reflexo forte.</li>
+          <li>Respeito e inclusão: o maior tratamento é ser tratado como todo mundo.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. MITOS E VERDADES ============ -->
+<section class="section section--dark" id="mitos" aria-labelledby="t-mit">
+  <div class="wrap">
+    <div class="myths__head">
+      <h2 class="h2" id="t-mit" data-reveal>Mitos e verdades</h2>
+      <p class="score" id="score" aria-live="polite" data-reveal>
+        <span class="score__n"><b id="score-hit">0</b> de <b>8</b></span>
+        <span class="score__label">acertos</span>
+        <button type="button" class="btn btn--plain btn--sm" id="score-reset" hidden>Recomeçar</button>
+      </p>
+    </div>
+    <!-- Para editar: cada item tem data-answer="mito" ou "verdade", a frase e a resposta. -->
+    <ol class="myths" id="myths">
+      <li class="myth" data-answer="mito" data-reveal>
+        <p class="myth__q">"Albinismo pega."</p>
+        <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
+        <div class="myth__a"><div><p><b class="tag">MITO.</b> É genético e já nasce com a pessoa.</p></div></div>
+      </li>
+      <li class="myth" data-answer="mito" data-reveal>
+        <p class="myth__q">"Todo mundo com albinismo tem olhos vermelhos."</p>
+        <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
+        <div class="myth__a"><div><p><b class="tag">MITO.</b> Os olhos costumam ser azuis, cinza ou castanho claro. Podem parecer avermelhados dependendo da luz.</p></div></div>
+      </li>
+      <li class="myth" data-answer="mito" data-reveal>
+        <p class="myth__q">"Só acontece com um grupo de pessoas."</p>
+        <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
+        <div class="myth__a"><div><p><b class="tag">MITO.</b> Acontece em pessoas de todos os povos.</p></div></div>
+      </li>
+      <li class="myth" data-answer="mito" data-reveal>
+        <p class="myth__q">"Tem cura."</p>
+        <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
+        <div class="myth__a"><div><p><b class="tag">MITO.</b> Não tem cura, mas tem tratamento e cuidados.</p></div></div>
+      </li>
+      <li class="myth" data-answer="mito" data-reveal>
+        <p class="myth__q">"Quem tem albinismo é menos inteligente."</p>
+        <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
+        <div class="myth__a"><div><p><b class="tag">MITO.</b> A inteligência é igual à de qualquer pessoa.</p></div></div>
+      </li>
+      <li class="myth" data-answer="verdade" data-reveal>
+        <p class="myth__q">"Dois pais sem albinismo podem ter um filho com albinismo."</p>
+        <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
+        <div class="myth__a"><div><p><b class="tag">VERDADE.</b> Se os dois forem portadores do gene alterado.</p></div></div>
+      </li>
+      <li class="myth" data-answer="verdade" data-reveal>
+        <p class="myth__q">"Pessoas com albinismo precisam se proteger mais do sol."</p>
+        <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
+        <div class="myth__a"><div><p><b class="tag">VERDADE.</b> A pele tem pouca proteção natural.</p></div></div>
+      </li>
+      <li class="myth" data-answer="verdade" data-reveal>
+        <p class="myth__q">"Animais também podem ter albinismo."</p>
+        <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
+        <div class="myth__a"><div><p><b class="tag">VERDADE.</b> Acontece em vários animais, como coelhos, cobras e jacarés.</p></div></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 6. PRECONCEITO E CONSCIENTIZAÇÃO ============ -->
+<section class="section" id="preconceito" aria-labelledby="t-pre">
+  <div class="wrap">
+    <h2 class="h2" id="t-pre" data-reveal>Preconceito e conscientização</h2>
+    <div class="split split--wide">
+      <div class="prose prose--lg" data-reveal>
+        <p>A pessoa com albinismo enfrenta dois desafios: a condição em si e o preconceito. Muitas vezes o preconceito é o mais pesado. Apelidos, olhares, piadas e até exclusão vêm da falta de informação. Em alguns países, crenças falsas e perigosas fazem pessoas com albinismo sofrerem violência, e por isso a ONU criou o Dia Internacional de Conscientização sobre o Albinismo, em 13 de junho.</p>
+      </div>
+      <div class="cal" data-reveal aria-hidden="true">
+        <span class="cal__m">junho</span>
+        <span class="cal__d">13</span>
+      </div>
+    </div>
+
+    <h3 class="h3" data-reveal>O que a gente pode fazer:</h3>
+    <ol class="actions">
+      <li data-reveal>Tratar todo mundo com respeito e sem apelidos.</li>
+      <li data-reveal>Não fazer piada com a aparência de ninguém.</li>
+      <li data-reveal>Não fazer perguntas invasivas.</li>
+      <li data-reveal>Explicar para os colegas que albinismo não pega.</li>
+      <li data-reveal>Ajudar na escola, por exemplo oferecendo um lugar perto do quadro ou material ampliado.</li>
+      <li data-reveal>Compartilhar informação correta, como neste site.</li>
+    </ol>
+
+    <!-- ESPAÇO PARA FOTO DO GRUPO (opcional) — mesmo esquema da seção "O que é".
+    <figure class="photo" data-reveal>
+      <img src="foto-2.jpg" alt="Descreva aqui o que aparece na foto">
+      <figcaption>Legenda da foto</figcaption>
+    </figure>
+    -->
+  </div>
+
+  <p class="motto" id="motto"><span>Diferença não é defeito.</span></p>
+</section>
+
+<!-- ============ 7. RESUMO RÁPIDO ============ -->
+<section class="section section--gray" id="resumo" aria-labelledby="t-res">
+  <div class="wrap">
+    <h2 class="h2" id="t-res" data-reveal>Resumo rápido</h2>
+    <p class="sub" data-reveal>Para quem tem pouco tempo.</p>
+    <dl class="bento">
+      <div class="tile tile--what" data-reveal>
+        <dt>O que é:</dt>
+        <dd>condição genética com pouca ou nenhuma melanina.</dd>
+      </div>
+      <div class="tile tile--no" data-reveal>
+        <dt>Contagioso?</dt>
+        <dd class="tile__huge">Não.</dd>
+      </div>
+      <div class="tile" data-reveal>
+        <dt>Como é herdado:</dt>
+        <dd>mais comum de forma autossômica recessiva (só aparece se receber o gene alterado do pai e da mãe).</dd>
+      </div>
+      <div class="tile tile--pct" data-reveal>
+        <dt>Chance de dois portadores terem um filho com albinismo:</dt>
+        <dd><span class="tile__huge">25%</span> por filho.</dd>
+      </div>
+      <div class="tile" data-reveal>
+        <dt>Sintomas:</dt>
+        <dd>pele, cabelos e olhos muito claros, pele que queima fácil, problemas de visão.</dd>
+      </div>
+      <div class="tile" data-reveal>
+        <dt>Tratamento:</dt>
+        <dd>não tem cura, mas tem proteção solar, óculos e acompanhamento médico.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ 8. FONTES ============ -->
+<section class="section" id="fontes" aria-labelledby="t-fon">
+  <div class="wrap wrap--narrow">
+    <h2 class="h2" id="t-fon" data-reveal>Fontes</h2>
+    <!-- COMO COLOCAR OS LINKS:
+         troque href="#" pelo endereço do site, por exemplo:
+         <a href="https://medlineplus.gov/genetics/condition/oculocutaneous-albinism/" ...>
+         Enquanto o href for "#", o item aparece como texto normal (sem link).
+         Para adicionar uma fonte nova, copie uma linha <li>...</li> inteira. -->
+    <ol class="sources">
+      <li data-reveal><a href="#" target="_blank" rel="noopener">MedlinePlus Genetics (Biblioteca Nacional de Medicina dos EUA): página sobre albinismo oculocutâneo</a></li>
+      <li data-reveal><a href="#" target="_blank" rel="noopener">National Human Genome Research Institute (NIH): página sobre albinismo</a></li>
+      <li data-reveal><a href="#" target="_blank" rel="noopener">Nações Unidas: Dia Internacional de Conscientização sobre o Albinismo</a></li>
+      <li data-reveal><a href="#" target="_blank" rel="noopener">Sociedade Brasileira de Dermatologia: orientações sobre fotoproteção</a></li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ RODAPÉ ============ -->
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <!-- LOGO: mesmo arquivo do cabeçalho (logo.svg). -->
+      <img src="logo.svg" alt="HBM Produções" width="64" height="64">
+      <p class="footer__made">Site criado por HBM</p>
+      <p class="footer__credit">HBM Produções</p>
+    </div>
+    <div class="footer__col">
+      <h2 class="footer__h">Grupo</h2>
+      <ul>
+        <li>Henrique</li>
+        <li>Bernardo</li>
+        <li>Martin</li>
+        <li>João</li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h2 class="footer__h">Trabalho</h2>
+      <ul>
+        <li>Biologia</li>
+        <li>9º ano</li>
+        <li>Colégio Anchieta</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer__bottom">
+    <p>Albinismo · Trabalho de Biologia · 9º ano · Colégio Anchieta</p>
+    <a href="#inicio" class="footer__top">Voltar ao início
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+    </a>
+  </div>
+</footer>
+
+<!-- ============ AJUSTES DE LEITURA (baixa visão) ============ -->
+<div class="a11y" id="a11y">
+  <button type="button" class="a11y__toggle" id="a11y-toggle" aria-expanded="false" aria-controls="a11y-panel">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 24 10 8l6 16M6.4 18h7.2"/><path d="M19 24l4.5-11L28 24M20.3 20.5h6.4"/></svg>
+    <span class="sr">Ajustes de leitura</span>
+  </button>
+  <div class="a11y__panel" id="a11y-panel" role="dialog" aria-label="Ajustes de leitura" hidden>
+    <p class="a11y__title">Ajustes de leitura</p>
+    <div class="a11y__row">
+      <span id="lbl-size">Tamanho do texto</span>
+      <div class="seg seg--sm" role="group" aria-labelledby="lbl-size">
+        <button type="button" class="seg__btn" data-size="1" aria-pressed="true">A</button>
+        <button type="button" class="seg__btn" data-size="1.15" aria-pressed="false">A+</button>
+        <button type="button" class="seg__btn" data-size="1.3" aria-pressed="false">A++</button>
+      </div>
+    </div>
+    <div class="a11y__row">
+      <label for="hc">Contraste máximo</label>
+      <button type="button" class="switch" id="hc" role="switch" aria-checked="false"><span></span></button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<!-- PLACEHOLDER da logo HBM Produções.
+     Quando tiver o arquivo oficial, basta salvar por cima deste arquivo
+     com o mesmo nome (logo.svg) ou trocar o src="logo.svg" no index.html. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="HBM Produções">
+  <rect x="1" y="1" width="118" height="118" rx="30" fill="#1d1d1f" stroke="#ffffff" stroke-opacity=".22" stroke-width="2"/>
+  <text x="60" y="71" text-anchor="middle" font-family="'Atkinson Hyperlegible Next','Helvetica Neue',Arial,sans-serif" font-weight="800" font-size="38" letter-spacing="-1" fill="#f5f5f7">HBM</text>
+  <circle cx="60" cy="90" r="4" fill="#ff9d57"/>
+</svg>
