@@ -4,9 +4,10 @@
 
 Site estático: `index.html`, `style.css`, `script.js` e `logo.svg`. Não precisa instalar nada; basta abrir o `index.html` no navegador.
 
-## Como trocar a logo
-Salve a logo oficial nesta pasta com o nome `logo.svg` (substituindo o placeholder).
-Se for PNG/JPG/WEBP, troque `src="logo.svg"` por `src="logo.png"` (por exemplo) nos dois lugares do `index.html` (cabeçalho e rodapé).
+## Logo
+- `logo-marca.png`: só o símbolo (cabeçalho e ícone da aba).
+- `logo-hbm.png`: símbolo + "HBM" (rodapé).
+Para trocar, salve por cima com o mesmo nome.
 
 ## Como colocar fotos
 Procure por `ESPAÇO PARA FOTO DO GRUPO` no `index.html` e siga as instruções do comentário.

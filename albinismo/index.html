@@ -6,7 +6,8 @@
   <title>Albinismo</title>
   <meta name="description" content="Albinismo: uma condição genética. Não pega, não é castigo e não é motivo de piada. Trabalho de Biologia, 9º ano, Colégio Anchieta.">
   <meta name="theme-color" content="#ffffff">
-  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="icon" href="logo-marca.png" type="image/png">
+  <link rel="apple-touch-icon" href="logo-marca.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@500;700&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap">
@@ -21,9 +22,8 @@
 <header class="nav" id="nav">
   <div class="nav__bar">
     <a class="nav__brand" href="#inicio" aria-label="Albinismo, voltar ao início">
-      <!-- LOGO: troque o arquivo logo.svg (mesma pasta) pela logo oficial.
-           Se a logo for PNG/JPG/WEBP, mude o src abaixo, ex: src="logo.png" -->
-      <img src="logo.svg" alt="HBM Produções" width="32" height="32">
+      <!-- LOGO (só o símbolo): arquivo logo-marca.png, na mesma pasta. -->
+      <span class="nav__logo"><img src="logo-marca.png" alt="HBM Produções" width="32" height="32"></span>
       <span>Albinismo</span>
     </a>
     <nav class="nav__links" id="nav-links" aria-label="Seções">
@@ -52,7 +52,7 @@
     <h1 id="hero-title" class="hero__title">Albinismo</h1>
     <p class="hero__sub">Uma condição genética. Não pega, não é castigo e não é motivo de piada.</p>
     <p class="hero__lead">Você já deve ter visto alguém com pele e cabelo muito claros e ficado com dúvida. Neste site a gente explica o que é o albinismo, como ele passa de pais para filhos, quais são os sintomas e como se cuidar.</p>
-    <a class="btn btn--filled" href="#o-que-e">
+    <a class="btn btn--filled" href="#o-que-e" data-magnetic>
       Começar
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
     </a>
@@ -99,7 +99,7 @@
       </div>
 
       <!-- Ferramenta: controle de melanina -->
-      <figure class="melanin" data-reveal aria-labelledby="mel-cap">
+      <figure class="melanin spot" data-reveal aria-labelledby="mel-cap">
         <svg class="melanin__skin" id="skin-svg" viewBox="0 0 560 300" aria-hidden="true">
           <g class="sun">
             <circle cx="70" cy="40" r="22"/>
@@ -195,7 +195,7 @@
       <article class="gpart" id="g2" aria-labelledby="t-g2">
         <h3 class="h3 gpart__title" id="t-g2" data-reveal><span class="num">2.2</span> Como a melanina é feita</h3>
 
-        <div class="path" id="path" data-mode="normal" data-reveal>
+        <div class="path spot" id="path" data-mode="normal" data-reveal>
           <div class="seg" role="group" aria-label="Escolha a versão do esquema">
             <button type="button" class="seg__btn" aria-pressed="true" data-mode="normal">Normal</button>
             <button type="button" class="seg__btn" aria-pressed="false" data-mode="mutacao">Com mutação</button>
@@ -279,15 +279,15 @@
           <p><span class="allele allele--a">a</span> = gene alterado (recessivo)</p>
         </div>
         <ul class="genotypes">
-          <li class="gt gt--AA" data-reveal>
+          <li class="gt gt--AA spot" data-reveal>
             <div class="chrom" data-pair="AA" aria-hidden="true"></div>
             <p><b class="mono">AA</b> = não tem o gene alterado</p>
           </li>
-          <li class="gt gt--Aa" data-reveal>
+          <li class="gt gt--Aa spot" data-reveal>
             <div class="chrom" data-pair="Aa" aria-hidden="true"></div>
             <p><b class="mono">Aa</b> = portador: tem o gene alterado, mas não tem albinismo</p>
           </li>
-          <li class="gt gt--aa" data-reveal>
+          <li class="gt gt--aa spot" data-reveal>
             <div class="chrom" data-pair="aa" aria-hidden="true"></div>
             <p><b class="mono">aa</b> = pessoa com albinismo</p>
           </li>
@@ -407,7 +407,11 @@
         </div>
 
         <div class="results" aria-live="polite">
-          <ul class="results__list" id="results"></ul>
+          <ul class="results__list" id="results">
+            <li class="res res--AA" data-g="AA"><span class="res__pct roll">0%</span><span class="res__name"><span class="mono">AA</span> = não tem o gene alterado</span><span class="res__bar" aria-hidden="true"><i></i></span></li>
+            <li class="res res--Aa" data-g="Aa"><span class="res__pct roll">0%</span><span class="res__name"><span class="mono">Aa</span> = portador</span><span class="res__bar" aria-hidden="true"><i></i></span></li>
+            <li class="res res--aa" data-g="aa"><span class="res__pct roll">0%</span><span class="res__name"><span class="mono">aa</span> = albinismo</span><span class="res__bar" aria-hidden="true"><i></i></span></li>
+          </ul>
           <p class="results__sentence" id="sentence"></p>
           <p class="results__fixed">Essa chance vale para cada filho, separadamente.</p>
         </div>
@@ -415,17 +419,18 @@
     </div>
 
     <!-- Sorteio: mostra que cada filho é independente -->
-    <div class="draw" data-reveal>
+    <div class="draw spot" data-reveal>
       <div class="draw__head">
         <h3 class="h3">Sorteie filhos deste casal</h3>
         <div class="draw__btns">
-          <button type="button" class="btn btn--filled btn--sm" id="draw-1">Sortear 1 filho</button>
-          <button type="button" class="btn btn--gray btn--sm" id="draw-20">Sortear 20</button>
+          <button type="button" class="btn btn--filled btn--sm" id="draw-1" data-magnetic>Sortear 1 filho</button>
+          <button type="button" class="btn btn--gray btn--sm" id="draw-20" data-magnetic>Sortear 20</button>
           <button type="button" class="btn btn--plain btn--sm" id="draw-clear">Limpar</button>
         </div>
       </div>
       <ol class="draw__kids" id="kids" aria-label="Filhos sorteados"></ol>
-      <p class="draw__tally" id="tally" aria-live="polite"></p>
+      <div class="draw__bar" id="draw-bar" hidden aria-hidden="true"><span class="db-AA"></span><span class="db-Aa"></span><span class="db-aa"></span></div>
+      <p class="draw__tally" id="tally" aria-live="polite" hidden>Total: <b class="roll" id="t-total">0</b> · <b>AA</b> <span class="roll" id="t-AA">0</span> · <b>Aa</b> <span class="roll" id="t-Aa">0</span> · <b>aa</b> <span class="roll" id="t-aa">0</span></p>
     </div>
   </div>
 </section>
@@ -461,7 +466,7 @@
     <h2 class="h2" id="t-sint" data-reveal>Sintomas</h2>
 
     <div class="symp">
-      <article class="symp__block symp__block--skin" data-reveal>
+      <article class="spot symp__block symp__block--skin" data-reveal>
         <h3 class="h3">Pele</h3>
         <div class="tones" aria-hidden="true"><span></span><span></span><span></span></div>
         <ul class="list">
@@ -470,7 +475,7 @@
         </ul>
       </article>
 
-      <article class="symp__block" data-reveal>
+      <article class="spot symp__block" data-reveal>
         <h3 class="h3">Cabelos e olhos</h3>
         <div class="hair" aria-hidden="true">
           <span style="--c:#f7f5ef"></span><span style="--c:#efe2b8"></span><span style="--c:#e6cf94"></span><span style="--c:#b48a62"></span>
@@ -483,7 +488,7 @@
         </ul>
       </article>
 
-      <article class="symp__block symp__block--vision" data-reveal>
+      <article class="spot symp__block symp__block--vision" data-reveal>
         <figure class="eye">
           <svg viewBox="0 0 400 240" role="img" aria-label="Desenho de um olho com íris clara">
             <defs>
@@ -501,10 +506,12 @@
             </defs>
             <path class="eye__white" d="M20 120C80 40 140 22 200 22s120 18 180 98c-60 80-120 98-180 98S80 200 20 120Z"/>
             <g clip-path="url(#eye-clip)">
-              <circle cx="200" cy="120" r="74" fill="url(#iris-g)"/>
-              <g class="eye__fibers" id="iris-fibers"></g>
-              <circle cx="200" cy="120" r="28" fill="url(#pupil-g)"/>
-              <circle cx="222" cy="98" r="10" fill="#fff" opacity=".9"/>
+              <g id="iris">
+                <circle cx="200" cy="120" r="74" fill="url(#iris-g)"/>
+                <g class="eye__fibers" id="iris-fibers"></g>
+                <circle id="pupil" cx="200" cy="120" r="28" fill="url(#pupil-g)"/>
+                <circle cx="222" cy="98" r="10" fill="#fff" opacity=".9"/>
+              </g>
             </g>
             <path class="eye__lid" d="M20 120C80 40 140 22 200 22s120 18 180 98c-60 80-120 98-180 98S80 200 20 120Z"/>
           </svg>
@@ -536,7 +543,7 @@
     </p>
 
     <div class="care">
-      <article class="care__block care__block--skin" data-reveal>
+      <article class="spot care__block care__block--skin" data-reveal>
         <h3 class="h3">Cuidados com a pele</h3>
         <div class="care__viz" aria-hidden="true">
           <div class="spf"><b>30+</b><span>FPS</span></div>
@@ -560,7 +567,7 @@
         </div>
       </article>
 
-      <article class="care__block" data-reveal>
+      <article class="spot care__block" data-reveal>
         <h3 class="h3">Cuidados com os olhos</h3>
         <svg class="care__icon" viewBox="0 0 120 48" aria-hidden="true"><circle cx="30" cy="26" r="18"/><circle cx="90" cy="26" r="18"/><path d="M48 24c8-6 16-6 24 0M12 22 4 14M108 22l8-8"/></svg>
         <ul class="list">
@@ -571,7 +578,7 @@
         </ul>
       </article>
 
-      <article class="care__block" data-reveal>
+      <article class="spot care__block" data-reveal>
         <h3 class="h3">Na escola e no dia a dia</h3>
         <svg class="care__icon" viewBox="0 0 120 48" aria-hidden="true"><rect x="10" y="4" width="100" height="30" rx="4"/><path d="M24 14h40M24 22h60M60 34v10M44 44h32"/></svg>
         <ul class="list">
@@ -590,54 +597,55 @@
     <div class="myths__head">
       <h2 class="h2" id="t-mit" data-reveal>Mitos e verdades</h2>
       <p class="score" id="score" aria-live="polite" data-reveal>
-        <span class="score__n"><b id="score-hit">0</b> de <b>8</b></span>
+        <span class="score__n"><b id="score-hit" class="roll">0</b> de <b>8</b></span>
         <span class="score__label">acertos</span>
         <button type="button" class="btn btn--plain btn--sm" id="score-reset" hidden>Recomeçar</button>
       </p>
     </div>
     <!-- Para editar: cada item tem data-answer="mito" ou "verdade", a frase e a resposta. -->
-    <ol class="myths" id="myths">
-      <li class="myth" data-answer="mito" data-reveal>
+    <ol class="myths" id="myths" aria-label="Mitos e verdades">
+      <li class="myth spot" data-answer="mito" data-reveal>
         <p class="myth__q">"Albinismo pega."</p>
         <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
         <div class="myth__a"><div><p><b class="tag">MITO.</b> É genético e já nasce com a pessoa.</p></div></div>
       </li>
-      <li class="myth" data-answer="mito" data-reveal>
+      <li class="myth spot" data-answer="mito" data-reveal>
         <p class="myth__q">"Todo mundo com albinismo tem olhos vermelhos."</p>
         <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
         <div class="myth__a"><div><p><b class="tag">MITO.</b> Os olhos costumam ser azuis, cinza ou castanho claro. Podem parecer avermelhados dependendo da luz.</p></div></div>
       </li>
-      <li class="myth" data-answer="mito" data-reveal>
+      <li class="myth spot" data-answer="mito" data-reveal>
         <p class="myth__q">"Só acontece com um grupo de pessoas."</p>
         <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
         <div class="myth__a"><div><p><b class="tag">MITO.</b> Acontece em pessoas de todos os povos.</p></div></div>
       </li>
-      <li class="myth" data-answer="mito" data-reveal>
+      <li class="myth spot" data-answer="mito" data-reveal>
         <p class="myth__q">"Tem cura."</p>
         <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
         <div class="myth__a"><div><p><b class="tag">MITO.</b> Não tem cura, mas tem tratamento e cuidados.</p></div></div>
       </li>
-      <li class="myth" data-answer="mito" data-reveal>
+      <li class="myth spot" data-answer="mito" data-reveal>
         <p class="myth__q">"Quem tem albinismo é menos inteligente."</p>
         <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
         <div class="myth__a"><div><p><b class="tag">MITO.</b> A inteligência é igual à de qualquer pessoa.</p></div></div>
       </li>
-      <li class="myth" data-answer="verdade" data-reveal>
+      <li class="myth spot" data-answer="verdade" data-reveal>
         <p class="myth__q">"Dois pais sem albinismo podem ter um filho com albinismo."</p>
         <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
         <div class="myth__a"><div><p><b class="tag">VERDADE.</b> Se os dois forem portadores do gene alterado.</p></div></div>
       </li>
-      <li class="myth" data-answer="verdade" data-reveal>
+      <li class="myth spot" data-answer="verdade" data-reveal>
         <p class="myth__q">"Pessoas com albinismo precisam se proteger mais do sol."</p>
         <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
         <div class="myth__a"><div><p><b class="tag">VERDADE.</b> A pele tem pouca proteção natural.</p></div></div>
       </li>
-      <li class="myth" data-answer="verdade" data-reveal>
+      <li class="myth spot" data-answer="verdade" data-reveal>
         <p class="myth__q">"Animais também podem ter albinismo."</p>
         <div class="myth__btns"><button type="button" data-guess="mito">Mito</button><button type="button" data-guess="verdade">Verdade</button></div>
         <div class="myth__a"><div><p><b class="tag">VERDADE.</b> Acontece em vários animais, como coelhos, cobras e jacarés.</p></div></div>
       </li>
     </ol>
+    <div class="myths__dots" id="myths-dots" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -649,9 +657,9 @@
       <div class="prose prose--lg" data-reveal>
         <p>A pessoa com albinismo enfrenta dois desafios: a condição em si e o preconceito. Muitas vezes o preconceito é o mais pesado. Apelidos, olhares, piadas e até exclusão vêm da falta de informação. Em alguns países, crenças falsas e perigosas fazem pessoas com albinismo sofrerem violência, e por isso a ONU criou o Dia Internacional de Conscientização sobre o Albinismo, em 13 de junho.</p>
       </div>
-      <div class="cal" data-reveal aria-hidden="true">
+      <div class="cal" data-reveal data-tilt aria-hidden="true">
         <span class="cal__m">junho</span>
-        <span class="cal__d">13</span>
+        <span class="cal__d" data-count="13">13</span>
       </div>
     </div>
 
@@ -682,27 +690,27 @@
     <h2 class="h2" id="t-res" data-reveal>Resumo rápido</h2>
     <p class="sub" data-reveal>Para quem tem pouco tempo.</p>
     <dl class="bento">
-      <div class="tile tile--what" data-reveal>
+      <div class="spot tile tile--what" data-reveal>
         <dt>O que é:</dt>
         <dd>condição genética com pouca ou nenhuma melanina.</dd>
       </div>
-      <div class="tile tile--no" data-reveal>
+      <div class="spot tile tile--no" data-reveal>
         <dt>Contagioso?</dt>
         <dd class="tile__huge">Não.</dd>
       </div>
-      <div class="tile" data-reveal>
+      <div class="spot tile" data-reveal>
         <dt>Como é herdado:</dt>
         <dd>mais comum de forma autossômica recessiva (só aparece se receber o gene alterado do pai e da mãe).</dd>
       </div>
-      <div class="tile tile--pct" data-reveal>
+      <div class="spot tile tile--pct" data-reveal>
         <dt>Chance de dois portadores terem um filho com albinismo:</dt>
         <dd><span class="tile__huge">25%</span> por filho.</dd>
       </div>
-      <div class="tile" data-reveal>
+      <div class="spot tile" data-reveal>
         <dt>Sintomas:</dt>
         <dd>pele, cabelos e olhos muito claros, pele que queima fácil, problemas de visão.</dd>
       </div>
-      <div class="tile" data-reveal>
+      <div class="spot tile" data-reveal>
         <dt>Tratamento:</dt>
         <dd>não tem cura, mas tem proteção solar, óculos e acompanhamento médico.</dd>
       </div>
@@ -734,8 +742,8 @@
 <footer class="footer">
   <div class="wrap footer__grid">
     <div class="footer__brand">
-      <!-- LOGO: mesmo arquivo do cabeçalho (logo.svg). -->
-      <img src="logo.svg" alt="HBM Produções" width="64" height="64">
+      <!-- LOGO completa (símbolo + HBM): arquivo logo-hbm.png, na mesma pasta. -->
+      <span class="footer__logo" data-tilt><img src="logo-hbm.png" alt="HBM Produções" width="107" height="119"></span>
       <p class="footer__made">Site criado por HBM</p>
       <p class="footer__credit">HBM Produções</p>
     </div>
